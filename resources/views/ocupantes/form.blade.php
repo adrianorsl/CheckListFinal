@@ -14,12 +14,16 @@
 value="@if (isset($ocorrencia->id)) {{ $ocorrencia->id }} @endif" disabled>
 </div>
 
+
 <div class="mb-3">
 <label for="nome">nome</label>
 <select type="int" class="form-control" name="nome" id="nome">
         @foreach($guarda as $item)    
-            <option value="{{$item->id}}">
-                {{$item->nome}}                                                       
+            <option value="{{$item->id}}"
+            @if ($oco->motorista == $item->id)
+             {{'selected'}} 
+            @endif >   
+            {{$item->nome}}                                                       
             </option>  
         @endforeach 
 </select>
@@ -40,6 +44,7 @@ value="@if (isset($ocorrencia->id)) {{ $ocorrencia->id }} @endif" disabled>
 <input type="int" class="form-control" name="ocorrencia_id" id="ocorrencia_id"
  value= "{{ $oco->id }}"readonly="readonly"> 
 </div>
+
 
 <button type="submit" class="btn btn-warning" name="acao" value="salvar"
 id="acao"> @if(isset($ocorrencia->horario)) Alterar @else Salvar @endif

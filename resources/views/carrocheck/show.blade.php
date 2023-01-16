@@ -63,12 +63,12 @@
                 @if($ocorrencia->dataInicio == null)
                   <td>{{$ocorrencia->dataInicio}}</td>
                 @else
-                  <td>{{ \Carbon\Carbon::parse($ocorrencia->dataInicio)->format('d/m/Y')}}</td>
+                  <td>{{ \Carbon\Carbon::parse($ocorrencia->dataInicio)->format('d/m/Y H:i')}}</td>
                 @endif
                 @if($ocorrencia->dataFim == null)
                   <td>{{$ocorrencia->dataFim}}</td>
                 @else
-                  <td>{{ \Carbon\Carbon::parse($ocorrencia->dataFim)->format('d/m/Y')}}</td>
+                  <td>{{ \Carbon\Carbon::parse($ocorrencia->dataFim)->format('d/m/Y H:i')}}</td>
                 @endif
                 <?php $veiculo = Veiculo::find($ocorrencia->veiculo_id) ?>
                 <td>{{ $veiculo->numero }}</td>
@@ -118,75 +118,147 @@
           <?php
             $condicao = Condicao::find($carrocheck->paralamaDianteiro_dir);
           ?>
-        <div class="col-6 col-sm-3">Paralama Dianteiro Direito: {{$condicao->descricao}}</div>
+          @if($condicao->descricao != "Ok")
+              <div class="col-6 col-sm-3 text-danger">Paralama Dianteiro Direito: {{$condicao->descricao}}</div>
+          @else       
+              <div class="col-6 col-sm-3 ">Paralama Dianteiro Direito: {{$condicao->descricao}}</div>
+          @endif
           <?php
             $condicao = Condicao::find($carrocheck->paralamaTraseiro_esq);
           ?>
-        <div class="col-6 col-sm-3">Paralama Traseiro Esquerdo: {{$condicao->descricao}}</div>
+          @if($condicao->descricao != "Ok")
+              <div class="col-6 col-sm-3 text-danger">Paralama Traseiro Esquerdo: {{$condicao->descricao}}</div>
+          @else       
+              <div class="col-6 col-sm-3 ">Paralama Traseiro Esquerdo: {{$condicao->descricao}}</div>
+          @endif
          <?php
             $condicao = Condicao::find($carrocheck->paralamaTraseiro_dir);
           ?>
-        <div class="col-6 col-sm-3">Paralama Traseiro Direito: {{$condicao->descricao}}</div>
+          @if($condicao->descricao != "Ok")
+              <div class="col-6 col-sm-3 text-danger">Paralama Traseiro Direito: {{$condicao->descricao}}</div>
+          @else       
+              <div class="col-6 col-sm-3 ">Paralama Traseiro Direito: {{$condicao->descricao}}</div>
+          @endif
          <?php
             $condicao = Condicao::find($carrocheck->parachoqueDianteiro);
           ?>
-        <div class="col-6 col-sm-3">Parachoque Dianteiro: {{$condicao->descricao}}</div>
+          @if($condicao->descricao != "Ok")
+              <div class="col-6 col-sm-3 text-danger">Parachoque Dianteiro: {{$condicao->descricao}}</div>
+          @else       
+              <div class="col-6 col-sm-3 ">Parachoque Dianteiro: {{$condicao->descricao}}</div>
+          @endif
          <?php
             $condicao = Condicao::find($carrocheck->portaDianteira_esq);
           ?>
-        <div class="col-6 col-sm-3">Porta Dianteira Esquerda: {{$condicao->descricao}}</div>
+          @if($condicao->descricao != "Ok")
+              <div class="col-6 col-sm-3 text-danger">Porta Dianteira Esquerda: {{$condicao->descricao}}</div>
+          @else       
+              <div class="col-6 col-sm-3 ">Porta Dianteira Esquerda: {{$condicao->descricao}}</div>
+          @endif
          <?php
             $condicao = Condicao::find($carrocheck->portaDianteira_dir);
           ?>
-        <div class="col-6 col-sm-3">Porta Dianteira Direita: {{$condicao->descricao}}</div>
+          @if($condicao->descricao != "Ok")
+              <div class="col-6 col-sm-3 text-danger">Porta Dianteira Direita: {{$condicao->descricao}}</div>
+          @else       
+              <div class="col-6 col-sm-3 ">Porta Dianteira Direita: {{$condicao->descricao}}</div>
+          @endif
          <?php
             $condicao = Condicao::find($carrocheck->portaTraseira_esq);
           ?>
-        <div class="col-6 col-sm-3">Porta Traseira Esquerda: {{$condicao->descricao}}</div>
+          @if($condicao->descricao != "Ok")
+              <div class="col-6 col-sm-3 text-danger">Porta Traseira Esquerda: {{$condicao->descricao}}</div>
+          @else       
+              <div class="col-6 col-sm-3 ">Porta Traseira Esquerda: {{$condicao->descricao}}</div>
+          @endif
          <?php
             $condicao = Condicao::find($carrocheck->portaTraseira_dir);
           ?>
-        <div class="col-6 col-sm-3">Porta Traseira Direita: {{$condicao->descricao}}</div>
+          @if($condicao->descricao != "Ok")
+              <div class="col-6 col-sm-3 text-danger">Porta Traseira Direita: {{$condicao->descricao}}</div>
+          @else       
+              <div class="col-6 col-sm-3 ">Porta Traseira Direita: {{$condicao->descricao}}</div>
+          @endif
          <?php
             $condicao = Condicao::find($carrocheck->luzDianteira);
           ?>
-        <div class="col-6 col-sm-3">Luzes Dianteira: {{$condicao->descricao}}</div>
+          @if($condicao->descricao != "Ok")
+              <div class="col-6 col-sm-3 text-danger">Luzes Dianteira: {{$condicao->descricao}}</div>
+          @else       
+              <div class="col-6 col-sm-3 ">Luzes Dianteira: {{$condicao->descricao}}</div>
+          @endif
          <?php
             $condicao = Condicao::find($carrocheck->luzTraseira);
           ?>
-        <div class="col-6 col-sm-3">Luzes Traseira: {{$condicao->descricao}}</div>
+          @if($condicao->descricao != "Ok")
+              <div class="col-6 col-sm-3 text-danger">Luzes Traseira: {{$condicao->descricao}}</div>
+          @else       
+              <div class="col-6 col-sm-3 ">Luzes Traseira: {{$condicao->descricao}}</div>
+          @endif
          <?php
             $condicao = Condicao::find($carrocheck->parachoqueTraseiro);
           ?>
-        <div class="col-6 col-sm-3">Parachoque Traseiro: {{$condicao->descricao}}</div>
+          @if($condicao->descricao != "Ok")
+              <div class="col-6 col-sm-3 text-danger">Parachoque Traseiro: {{$condicao->descricao}}</div>
+          @else       
+              <div class="col-6 col-sm-3 ">Parachoque Traseiro: {{$condicao->descricao}}</div>
+          @endif
          <?php
             $condicao = Condicao::find($carrocheck->capoTraseiro);
           ?>
-        <div class="col-6 col-sm-3">Capo Traseiro: {{$condicao->descricao}}</div>
+          @if($condicao->descricao != "Ok")
+              <div class="col-6 col-sm-3 text-danger">Capo Traseiro: {{$condicao->descricao}}</div>
+          @else       
+              <div class="col-6 col-sm-3 ">Capo Traseiro: {{$condicao->descricao}}</div>
+          @endif
          <?php
             $condicao = Condicao::find($carrocheck->giroflex);
           ?>
-        <div class="col-6 col-sm-3">GiroFlex: {{$condicao->descricao}}</div>
+          @if($condicao->descricao != "Ok")
+              <div class="col-6 col-sm-3 text-danger">GiroFlex: {{$condicao->descricao}}</div>
+          @else       
+              <div class="col-6 col-sm-3 ">GiroFlex: {{$condicao->descricao}}</div>
+          @endif
          <?php
             $condicao = Condicao::find($carrocheck->vidro);
           ?>
-        <div class="col-6 col-sm-3">Vidros: {{$condicao->descricao}}</div>
+          @if($condicao->descricao != "Ok")
+              <div class="col-6 col-sm-3 text-danger">Vidros: {{$condicao->descricao}}</div>
+          @else       
+              <div class="col-6 col-sm-3 ">Vidros: {{$condicao->descricao}}</div>
+          @endif
         <?php
             $condicao = Condicao::find($carrocheck->interno);
           ?>
-        <div class="col-6 col-sm-3">Interno: {{$condicao->descricao}}</div>
+          @if($condicao->descricao != "Ok")
+              <div class="col-6 col-sm-3 text-danger">Interno: {{$condicao->descricao}}</div>
+          @else       
+              <div class="col-6 col-sm-3 ">Interno: {{$condicao->descricao}}</div>
+          @endif
          <?php
             $condicao = Condicao::find($carrocheck->impressora);
           ?>
-        <div class="col-6 col-sm-3">Impressora: {{$condicao->descricao}}</div>
+          @if($condicao->descricao != "Ok")
+              <div class="col-6 col-sm-3 text-danger">Impressora: {{$condicao->descricao}}</div>
+          @else       
+              <div class="col-6 col-sm-3 ">Impressora: {{$condicao->descricao}}</div>
+          @endif
         <?php
             $condicao = Condicao::find($carrocheck->smartphone);
           ?>
-        <div class="col-6 col-sm-3">Smartphone: {{$condicao->descricao}}</div>
+          @if($condicao->descricao != "Ok")
+              <div class="col-6 col-sm-3 text-danger">Smartphone: {{$condicao->descricao}}</div>
+          @else       
+              <div class="col-6 col-sm-3 ">Smartphone: {{$condicao->descricao}}</div>
+          @endif
          <?php
             $condicao = Condicao::find($carrocheck->motor);
           ?>
-        <div class="col-6 col-sm-3">Motor: {{$condicao->descricao}}</div>
+           @if($condicao->descricao != "Ok")
+              <div class="col-6 col-sm-3 text-danger">Motor: {{$condicao->descricao}}</div>
+          @else       
+              <div class="col-6 col-sm-3 ">Motor: {{$condicao->descricao}}</div>
+          @endif
       </div>
     </div>
 </body>

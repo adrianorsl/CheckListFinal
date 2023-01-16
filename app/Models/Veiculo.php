@@ -9,7 +9,7 @@ class Veiculo extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['placa','numero'];
+    protected $fillable = ['id','placa','numero'];
 
     public function ocorrencia()
     {

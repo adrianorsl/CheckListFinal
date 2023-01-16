@@ -9,7 +9,6 @@
 <x-layout titulo="Carro check">
   <body>
     @foreach($carrocheck as $item)
-      <a href="{{ route('carrocheck.create') }}" class="btn btn-primary" >Adicionar</a>
       <a href="{{ route('carrocheck.show', $item->id) }}" class="btn btn-info" >Detalhes</a> 
     @endforeach
         <div class="py-4">

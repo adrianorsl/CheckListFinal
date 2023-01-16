@@ -24,18 +24,18 @@ value="@if (isset($ocorrencia->id)) {{ $ocorrencia->id }} @endif" disabled>
         @endforeach 
 </select>
 </div>
+<?php
+    $timezone = new DateTimeZone('America/Sao_Paulo');
+    $agora = new DateTime('now', $timezone);
+?>
 
 <div class="mb-3">
-<label for="dataInicio">Inicio</label>
-<input type="date" class="form-control" name="dataInicio" id="dataInicio"
-value="@if (isset($ocorrencia->dataInicio)) {{ $ocorrencia->dataInicio }} @endif" >
-</div>
-
-<div class="mb-3">
+<input type="checkbox" name="dataInicio" id="dataInicio" value= "{{ $agora->format('Y/m/d H:i') }}" >
+<label for="dataInicio">Inicio</label><br>
+<input type="checkbox" name="dataFim" id="dataFim" value= "{{ $agora->format('Y/m/d H:i') }}" >
 <label for="dataFim">Fim</label>
-<input type="date" class="form-control" name="dataFim" id="dataFim"
-value="@if (isset($ocorrencia->dataFim)) {{ $ocorrencia->dataFim }} @endif">
 </div>
+
 
 <div class="mb-3">
 <label for="veiculo_id">Viatura</label>

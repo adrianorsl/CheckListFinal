@@ -15,45 +15,33 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="/">Home</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
             </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/arma">Armas</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/tipoMunicao">Tipo de Munições</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href=" /municoes">Munições</a>
-            </li>
-            <li class="nav-item dropdown">
-            <a class="nav-link active" aria-current="page" href="/cargo">Cargos</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/usuario">Usuario</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/condicao">Condição</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href=" /veiculo">Veiculo</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href=" /ocorrencia">CheckList</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href=" /carrocheck">Verificar</a>
-            </li>
-            @auth
-            <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href='logout'>Sair</a>
-            </li>
-            @endauth
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/arma">Armas</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/condicao">Condição</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href=" /veiculo">Veiculo</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href=" /ocorrencia">CheckList</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href=" /carrocheck">Verificar</a>
+                    </li>
+                    @auth
+                    <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href='logout'>Sair</a>
+                    </li>
+                    @endauth
 
-        </ul>
-        </div>
+                </ul>
+            </div>
         </div>
     </nav>
     

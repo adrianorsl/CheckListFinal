@@ -26,13 +26,16 @@
                     <a class="nav-link active" aria-current="page" href="/condicao">Condição</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href=" /veiculo">Veiculo</a>
+                    <a class="nav-link active" aria-current="page" href="/veiculo">Veiculo</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href=" /ocorrencia">CheckList</a>
+                    <a class="nav-link active" aria-current="page" href="/ocorrencia">CheckList</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href=" /carrocheck">Verificar</a>
+                    <a class="nav-link active" aria-current="page" href="/carrocheck">Verificar</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/register">Registrar</a>
                     </li>
                     @auth
                     <li class="nav-item">

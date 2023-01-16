@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Carrocheck;
 use App\Models\Municao;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class CarrocheckController extends Controller
 {
@@ -16,6 +17,9 @@ class CarrocheckController extends Controller
     public function index()
     {
         //
+        if(Gate::denies(ability: 'adm')){
+            abort(code: 403, message: 'Acesso negado');
+        }
         if (request('find') != null)
             {
                 $busca = request('find');
@@ -47,6 +51,7 @@ class CarrocheckController extends Controller
     public function store(Request $request)
     {
         //
+        
         $carrocheck = Carrocheck::create($request->all());
         return redirect()->route('ocupante.create');
     }
@@ -60,6 +65,9 @@ class CarrocheckController extends Controller
     public function show($ocorrencia_id)
     {
         //
+        if(Gate::denies(ability: 'adm')){
+            abort(code: 403, message: 'Acesso negado');
+        }
         $carrocheck = Carrocheck::find($ocorrencia_id);
         return view('carrocheck.show', ['carrocheck'=>$carrocheck]);
     }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Arma;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class ArmaController extends Controller
 {
@@ -26,6 +27,9 @@ class ArmaController extends Controller
     public function create()
     {
         //
+        if(Gate::denies(ability: 'adm')){
+            abort(code: 403, message: 'Acesso negado');
+        }
         return view("armas.create");
     }
 

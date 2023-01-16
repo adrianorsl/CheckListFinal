@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Ocorrencia;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class OcorrenciaController extends Controller
 {
@@ -59,6 +60,9 @@ class OcorrenciaController extends Controller
     public function show(Ocorrencia $id)
     {
         //
+        if(Gate::denies(ability: 'adm')){
+            abort(code: 403, message: 'Acesso negado');
+        }
         $ocorrencia = Ocorrencia::find($id);
         return view('ocorrencia.show', ['ocorrencia'=>$ocorrencia]);
     }

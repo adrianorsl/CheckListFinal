@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\Autenticador;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CondicaoController;
 use App\Http\Controllers\VeiculoController;
@@ -9,6 +10,9 @@ use App\Http\Controllers\CarrocheckController;
 use App\Http\Controllers\MunicaoController;
 use App\Http\Controllers\GuardaController;
 use App\Http\Controllers\OcupanteController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\UsersController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,13 +27,19 @@ use App\Http\Controllers\OcupanteController;
 
 Route::get('/', function () {
     return view('/home');
-});
+})->middleware(Autenticador::class);
 
-Route::resource('/condicao', CondicaoController::class);
-Route::resource('/municao', MunicaoController::class);
-Route::resource('/veiculo', VeiculoController::class);
-Route::resource('/arma', ArmaController::class);
-Route::resource('/ocorrencia', OcorrenciaController::class);
-Route::resource('/carrocheck', CarrocheckController::class);
-Route::resource('/guarda', GuardaController::class);
-Route::resource('/ocupante', OcupanteController::class);
+Route::resource('/condicao', CondicaoController::class)->middleware(Autenticador::class);
+Route::resource('/municao', MunicaoController::class)->middleware(Autenticador::class);
+Route::resource('/veiculo', VeiculoController::class)->middleware(Autenticador::class);
+Route::resource('/arma', ArmaController::class)->middleware(Autenticador::class);
+Route::resource('/ocorrencia', OcorrenciaController::class)->middleware(Autenticador::class);
+Route::resource('/carrocheck', CarrocheckController::class)->middleware(Autenticador::class);
+Route::resource('/guarda', GuardaController::class)->middleware(Autenticador::class);
+Route::resource('/ocupante', OcupanteController::class)->middleware(Autenticador::class);
+Route::get('/login', [LoginController::class, 'index'])->name(name: 'login');
+Route::post('/login', [LoginController::class, 'store'])->name(name: 'signin');
+Route::get('/logout', [LoginController::class, 'destroy'])->name(name: 'logout');
+
+Route::get('/register', [UsersController::class, 'create'])->name(name: 'users.create');
+Route::post('/register', [UsersController::class, 'store'])->name(name: 'users.store');

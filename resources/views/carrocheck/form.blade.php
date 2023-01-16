@@ -16,10 +16,7 @@
     $veiculo = Veiculo::where('id',$oco->veiculo_id)->value('id');
     $oco2 = Ocorrencia::where('veiculo_id', $veiculo)->latest()->skip(1)->first();
     $t = $oco2->id;
-    $c = Carrocheck::where('id', $t )->first();
-
-    $carrocheck = $c;
-
+    $carrocheck = Carrocheck::where('id', $t )->first();
 ?>
 
 

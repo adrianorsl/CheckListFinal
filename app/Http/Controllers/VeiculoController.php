@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Veiculo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class VeiculoController extends Controller
 {
@@ -26,6 +27,9 @@ class VeiculoController extends Controller
     public function create()
     {
         //
+        if(Gate::denies(ability: 'adm')){
+            abort(code: 403, message: 'Acesso negado');
+        }
         return view("veiculo.create");
     }
 

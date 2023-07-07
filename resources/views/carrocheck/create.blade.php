@@ -2,7 +2,7 @@
     use App\Models\Carrocheck;
     use App\Models\Condicao;
     $condicao = new Condicao();
-    $concicao = Condicao::all();
+    $condicao = Condicao::all();
     $carrocheck = new Carrocheck();
  
 ?>

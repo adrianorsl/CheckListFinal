@@ -74,4 +74,9 @@ class OcorrenciaController extends Controller
      * @return \Illuminate\Http\Response
      */
    
+     public function destroy($id)
+    {    
+        Ocorrencia::destroy($id);
+        return view('ocorrenia.index');
+    }
 }

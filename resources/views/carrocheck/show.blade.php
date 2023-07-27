@@ -78,15 +78,15 @@
         <table class="table table-success table-striped">
           <thead>
               <tr>
-                  <th scope="col">Arma</th>
-                  <th scope="col">Munições</th>
+                  <th scope="col">Equipamento</th>
+                  <th scope="col">Munições\Quantidade</th>
               </tr>
           </thead>
           @foreach($arma_oco_mun as $item)
             <tbody>
               <tr>
                   <?php $arma = Arma::find($item->arma_id) ?>
-                  <td>{{ $arma->descricao }}</td>
+                  <td>{{$arma->numero}} {{ $arma->descricao }}</td>
                   <?php $municao = Municao::find($item->municoes_id) ?>
                   <td>{{ $municao->quantidade }}</td>
               </tr>
@@ -94,7 +94,7 @@
             @endforeach
         </table>
     </div>
-  <body class="p-3 m-0 border-0 bd-example bd-example-row">
+  <body class="p-3 m-2 border-2 bd-example bd-example-row">
     <div class="container text-center">
       <div class="row">
         <div class="col-6 col-sm-3">Ocorrencia: {{$carrocheck->id}}</div>
@@ -186,6 +186,14 @@
               <div class="col-6 col-sm-3 text-danger">Luzes Dianteira: {{$condicao->descricao}}</div>
           @else       
               <div class="col-6 col-sm-3 ">Luzes Dianteira: {{$condicao->descricao}}</div>
+          @endif
+          <?php
+            $condicao = Condicao::find($carrocheck->roda);
+          ?>
+          @if($condicao->descricao != "Ok")
+              <div class="col-6 col-sm-3 text-danger">Pneus e Rodas: {{$condicao->descricao}}</div>
+          @else       
+              <div class="col-6 col-sm-3 ">Pneus e Rodas: {{$condicao->descricao}}</div>
           @endif
          <?php
             $condicao = Condicao::find($carrocheck->luzTraseira);

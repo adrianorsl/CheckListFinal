@@ -38,6 +38,7 @@ return new class extends Migration
             $table->integer('impressora');
             $table->integer('smartphone');
             $table->integer('motor');
+            $table->integer('roda');
             $table->timestamps();
         });
     }

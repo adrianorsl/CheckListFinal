@@ -18,5 +18,5 @@ value= "@if (isset($armas->descricao)) {{ $armas->descricao }} @endif" >
 </div>
 
 <button type="submit" class="btn btn-warning" name="acao" value="salvar"
-id="acao"> @if(isset($armas->numero)) Alterar @else Salvar @endif
+id="acao"> @if(isset($armas->numero)) Alterar @else Adicionar @endif
 </button> 

@@ -16,7 +16,7 @@ value="@if (isset($municaos->id)) {{ $municaos->id }} @endif" >
 </div>
 
 <div class="mb-3">
-<label for="armas_id">Arma</label>
+<label for="armas_id">Equipamento</label>
 <select type="text" class="form-control" name="armas_id" id="armas_id">
     @foreach($arma as $item)    
         <option value="{{$item->id}}">
@@ -33,7 +33,7 @@ value="@if (isset($municaos->quantidade)) {{ $municaos->quantidade }} @endif" >
 </div>
 
 <button type="submit" class="btn btn-warning" name="acao" value="salvar"
-id="acao"> @if(isset($municaos->quantidade)) Alterar @else Salvar @endif
+id="acao"> @if(isset($municaos->quantidade)) Alterar @else Adicionar @endif
 </button> 
 
 <a href=  '/'  class="btn btn-primary"> Continuar</a>

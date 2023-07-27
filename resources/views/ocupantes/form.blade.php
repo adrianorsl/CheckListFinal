@@ -47,7 +47,7 @@ value="@if (isset($ocorrencia->id)) {{ $ocorrencia->id }} @endif" disabled>
 
 
 <button type="submit" class="btn btn-warning" name="acao" value="salvar"
-id="acao"> @if(isset($ocorrencia->horario)) Alterar @else Salvar @endif
+id="acao"> @if(isset($ocorrencia->horario)) Alterar @else Adicionar @endif
 </button> 
 
 <a href=  '/municao'  class="btn btn-primary"> Continuar</a>

@@ -29,6 +29,7 @@
                     <tr>
                         <th scope="col">Ocupantes</th>
                         <th scope="col">Seviço</th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -41,6 +42,11 @@
                                     $item3 = Servico::find($item->escala);
                                 ?>
                                 <td>{{$item3->tipo}}</td>
+                                <td><form id="form_delete" name="form_delete" action="{{ route('ocupante.destroy',$item->id) }}" method="post" onsubmit="return confirm('Tem certeza que deseja excluir este registro?')">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger delete-btn">Excluir</button>
+                                    </form></td></tr> 
                                 @endif 
                             @endforeach
                         @endif

@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Armas_ocor_mun;
 use App\Models\Municao;
 use App\Models\Ocorrencia;
@@ -53,6 +52,15 @@ class MunicaoController extends Controller
         //$armaOcoMun = Armas_ocor_mun::create($request->all());
         return redirect()->route('municao.index');
     }
+
+    public function destroy($municoes_id)
+    {
+        //
+        Armas_ocor_mun::where('municoes_id', $municoes_id)->delete();
+        return redirect()->route('municao.create');
+
+    }
+   
 
     /**
      * Display the specified resource.

@@ -79,7 +79,7 @@
           <thead>
               <tr>
                   <th scope="col">Equipamento</th>
-                  <th scope="col">Munições\Quantidade</th>
+                  <th scope="col">Quantidade</th>
               </tr>
           </thead>
           @foreach($arma_oco_mun as $item)
@@ -268,6 +268,18 @@
               <div class="col-6 col-sm-3 ">Motor: {{$condicao->descricao}}</div>
           @endif
       </div>
+    </div>
+    <div class="py-1">
+        <table class="table table-success table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Observações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ $carrocheck->observacao }}</td>
+            </tr>
     </div>
 </body>
 </x-layout>

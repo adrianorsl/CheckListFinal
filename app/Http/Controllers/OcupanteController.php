@@ -82,8 +82,11 @@ class OcupanteController extends Controller
      * @param  \App\Models\Ocupante  $ocupante
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Ocupante $ocupante)
+    public function destroy($id)
     {
         //
+        Ocupante::where('id', $id)->delete();
+        return redirect()->route('ocupante.create');
+
     }
 }

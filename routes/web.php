@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArmasOcorMunController;
 use App\Http\Middleware\Autenticador;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CondicaoController;
@@ -43,3 +44,4 @@ Route::get('/logout', [LoginController::class, 'destroy'])->name(name: 'logout')
 
 Route::get('/register', [UsersController::class, 'create'])->name(name: 'users.create');
 Route::post('/register', [UsersController::class, 'store'])->name(name: 'users.store');
+Route::delete('municao/{id}', [MunicaoController::class, 'destroy']);

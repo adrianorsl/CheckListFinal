@@ -16,7 +16,7 @@ value="@if (isset($ocorrencia->id)) {{ $ocorrencia->id }} @endif" disabled>
 
 
 <div class="mb-3">
-<label for="nome">nome</label>
+<label for="nome">Nome</label>
 <select type="int" class="form-control" name="nome" id="nome">
         @foreach($guarda as $item)    
             <option value="{{$item->id}}"

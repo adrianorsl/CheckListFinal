@@ -24,11 +24,13 @@
                 <thead>
                     <tr>
                         <th scope="col">Equipamento</th>
-                        <th scope="col">Munições/Quantidade</th>
+                        <th scope="col">Quantidade</th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($armas_ocor_mun as $item)
+                    
                         @if($oco->id == $item->ocorrencia_id)
                             @foreach($arma as $item2)    
                                 @if ($item->arma_id == $item2->id)
@@ -36,12 +38,19 @@
                                     @foreach($municao as $item3) 
                                         @if ($item->municoes_id == $item3->id)
                                             <td>{{$item3->quantidade}}</td>
+                                            <td><form id="form_delete" name="form_delete" action="{{ route('municao.destroy',$item3->id) }}" method="post" onsubmit="return confirm('Tem certeza que deseja excluir este registro?')">
+                                                @method('DELETE')
+                                                @csrf
+                                                <button type="submit" class="btn btn-danger delete-btn">Excluir</button>
+                                                </form></td></tr>             
                                         @endif 
                                     @endforeach
                                 @endif
                             @endforeach
                         @endif
                     @endforeach
-                                </tr>
+                  
+                      
+                    </tr>
                 </tbody>
 </x-layout>

@@ -231,6 +231,8 @@
           @else 
             <div class="col-6 col-sm-3">Motor: {{$condicao->descricao}}</div>
           @endif
+          <br><br>
+         
         
         @endforeach  
       </div> 

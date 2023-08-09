@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Armas_ocor_mun;
 use Illuminate\Http\Request;
 
-class ArmasOcorMunController extends Controller
+class Armas_ocor_munController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -78,8 +78,11 @@ class ArmasOcorMunController extends Controller
      * @param  \App\Models\Armas_ocor_mun  $armas_ocor_mun
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Armas_ocor_mun $armas_ocor_mun)
+    public function destroy($municoes_id)
     {
         //
+        Armas_ocor_munController::where('municoes_id', $municoes_id)->delete();
+        return redirect()->route('municao.create');
+
     }
 }

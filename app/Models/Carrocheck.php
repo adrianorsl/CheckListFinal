@@ -12,7 +12,7 @@ class Carrocheck extends Model
     protected $fillable = ['id','km','capo','paralamaDianteiro_esq','paralamaDianteiro_dir', 'paralamaTraseiro_esq',
     'paralamaTraseiro_dir','parachoqueDianteiro','portaDianteira_esq','portaDianteira_dir','portaTraseira_esq',
     'portaTraseira_dir','luzDianteira','luzTraseira','parachoqueTraseiro','capoTraseiro','giroflex','vidro','interno',
-    'impressora','smartphone','motor', 'roda'];
+    'impressora','smartphone','motor', 'roda', 'observacao'];
 
     public function ocorrencia()
     {

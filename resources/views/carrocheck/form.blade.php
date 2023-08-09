@@ -364,6 +364,12 @@ value="@if (isset($carrocheck->km)) {{ $carrocheck->km }} @endif" ><br>
 </select>
 </div>
 
+<div class=" mb-4">
+<label for="observacao"><h2>Observações<h2></label>
+<input  type=textarea  class="form-control" name="observacao" id="observacao" rows="20" cols="30" value="@if (isset($carrocheck->observacao)) {{ $carrocheck->observacao }} @endif" ></textarea>
+<br><br>
+</div>
+
 <button type="submit" class="btn btn-primary" name="acao" value="salvar"
 id="acao"> @if(isset($carrocheck->ocorrencia)) Alterar @else Salvar @endif
 </button> 
